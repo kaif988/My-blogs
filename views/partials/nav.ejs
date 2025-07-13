@@ -1,0 +1,28 @@
+<nav>
+    <div class="site-title">
+        <a href="/"><h1>Blog Kaif</h1></a>
+        <p>A Net Site</p>
+    </div>
+    <ul>
+        <li><a href="/">Blogs</a></li>
+        <li><a href="/about">About</a></li>
+        
+        <!-- For logged-in users -->
+        <% if (user) { %>
+            <li><a href="/blogs/create" class="highlight-link">+ New Blog</a></li>
+            <li><a href="/profile/<%= user.username %>">Profile</a></li>
+            <li><a href="/logout"> Logout</a>
+                <div class="user-dropdown">
+                    <span>👤 <%= user.username %></span>
+                    <div class="dropdown-content">
+                        <a href="/logout">Logout</a>
+                    </div>
+                </div>
+            </li>
+        <% } else { %>
+            <!-- For guests -->
+            <li><a href="/login" class="auth-link">Login</a></li>
+            <li><a href="/register" class="auth-link register">Sign Up</a></li>
+        <% } %>
+    </ul>
+</nav>

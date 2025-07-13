@@ -1,0 +1,35 @@
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/nav') %>
+
+  <div class="profile-content">
+    <% if (profileUser) { %>
+      <!-- Show profile content only if user exists -->
+      <h1><%= profileUser.displayName || profileUser.username %></h1>
+      <p class="username">@<%= profileUser.username %></p>
+      
+      <% if (profileUser.bio) { %>
+        <div class="bio">
+          <h3>About</h3>
+          <p><%= profileUser.bio %></p>
+        </div>
+      <% } %>
+
+      <p>Member since: <%= profileUser.createdAt.toDateString() %></p>
+
+      <% if (currentUser && currentUser._id.equals(profileUser._id)) { %>
+        <a href="/profile/edit" class="button">Edit Profile</a>
+      <% } %>
+
+    <% } else { %>
+      <!-- Show error if user not found -->
+      <div class="error">
+        <h2>User not found 😢</h2>
+        <p>This profile doesn't exist or has been deleted</p>
+      </div>
+    <% } %>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

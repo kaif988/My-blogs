@@ -1,0 +1,42 @@
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+
+        <div class="details content">
+            <h2><%= blog.title %></h2>
+            <div class="content">
+                <p><%= blog.snippet %></p>
+            <div class="content">
+                <p><%= blog.body %></p>
+                
+                </div>
+                <a class="delete" data-doc="<%= blog._id %>"> delete</a>
+            </div>
+        </div>
+
+        <%- include("./partials/footer.ejs") %>
+        <script>
+        
+            // 1. First select the delete button
+                const trashcan = document.querySelector('.delete');
+
+            // 2. Then add the event listener
+            trashcan.addEventListener('click', (e) => {
+                
+                const endpoint = `/blogs/${trashcan.dataset.doc}`;
+
+                fetch(endpoint, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => window.location.href = data.redirect)
+                .catch(err => {
+                    console.error("Delete failed:", err);
+                });
+            });
+        </script>
+
+    </body>
+</html>

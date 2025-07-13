@@ -1,0 +1,254 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja node | <%= title %></title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
+        :root{
+          --background:#fffbea ;
+          --text:#3c3c3c;
+          --primary:#f9a826;
+          --accent:#f27923;
+          --secondary:#f9a826; 
+          --hover-glow: #f01d0a;
+        }
+        body{
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            font-family: 'Winky Rough', Rough;
+            background: var(--background);
+            color: var(--text);
+            transition: background 0.3s ease;
+        }
+        p,h1,h2,h3,a,ul {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            color: var(--primary);
+            text-shadow: none;
+        }
+        p{
+          color: var(--text);
+        }
+        a:hover{
+          color: var(--accent);
+          text-shadow: 0 0 3px var(--hover-glow);;
+          transition: width 0.4s ease;
+        }
+
+
+        /* nav footer styles */
+        nav{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+            text-transform: uppercase;
+        }
+        nav ul{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        nav li{
+            list-style-type: none;
+            margin:0;
+            padding: 5px 0;
+
+        }
+        nav p, nav a{
+            color: #B89B6B;
+            font-weight: 400;
+     }
+
+     nav a:hover{
+      color: var(--accent);
+      text-shadow: 0 0 6px var(--accent);
+
+     }
+     footer{
+       color: var(--secondary);
+       text-align: center;
+       margin: 80px auto 20px;
+     }
+     h2{
+       margin-bottom: 40px;
+       color:	#B89B6B;
+     }
+     h3{
+       text-transform: capitalize;
+       margin-bottom: 8px;
+     }
+     .content{
+       margin-left: 20px;
+     }
+ 
+     /* index styles */
+        .blogs a{
+          display: block;
+          margin: 40px 0;
+          padding-left: 30px;
+          border-left: 6px solid var(--secondary);
+        }
+        .blogs a:hover h3{
+          color: var(--accent);
+          text-shadow: 0 0 6px var(--accent)
+        }
+     /* details styles */
+
+     .details{
+      position: relative;
+     }
+     .delete{
+      position:absolute;
+      top: 0;
+      right: 0;
+      border-radius: 10%;
+      padding: 8px;
+     }
+     .delete:hover{
+      cursor: pointer;
+      box-shadow: 1px 2px 3px var(--accent);
+     }
+ 
+     /* create styles */
+     .create-blogs form{
+       max-width: 400px;
+       margin: 0 auto;
+     }
+     .create-blogs input,
+     .create-blogs textarea{
+       display: block;
+       width: 100%;
+       margin: 10px 0;
+       padding: 10px;
+       background: white;
+       border: 1px solid var(--primary);
+       color: var(--text);
+       border-radius: 6px;
+     }
+     .create-blogs label{
+       display: block;
+       margin-top: 24px;
+     }
+     textarea{
+       height: 120px;
+     }
+     .create-blogs button{
+       margin-top: 20px;
+       background: var(--primary);
+       color: white;
+       border: none;
+       font-size: 1.2em;
+       cursor: pointer;
+       padding: 10px 20px;
+       border-radius: 8px;
+       box-shadow: 0 0 4px var(--hover-glow);
+       transition: 0.3s ease;
+
+     }
+     .create-blogs button:hover{
+      color: var(--accent); /* Hover effect */
+      box-shadow:0 0 8px var(--accent);
+     }
+     /* Add these new styles to your existing CSS */
+.highlight-link {
+    background: var(--primary);
+    color: var(--background);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.highlight-link:hover {
+    background: var(--accent);
+    color: var(--background);
+    box-shadow: 0 0 10px var(--hover-glow);
+    text-shadow: none;
+}
+
+.auth-link {
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.auth-link.register {
+    background: var(--secondary);
+    color: var(--background);
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.auth-link.register:hover {
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--hover-glow);
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.user-dropdown span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(154, 109, 255, 0.2);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: var(--background);
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    padding: 10px;
+    min-width: 120px;
+    z-index: 1;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px 0;
+    color: var(--text);
+}
+
+.dropdown-content a:hover {
+    color: var(--accent);
+}
+
+
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    nav li {
+        margin: 5px 0;
+    }
+}
+
+    </style>
+    
+</head>
